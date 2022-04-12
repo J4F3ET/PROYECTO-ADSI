@@ -1,0 +1,15 @@
+#nav{
+    background-color: #ec703b;
+}
+@media screen and (max-width: 992px) {
+    #boton_entrar{
+        visibility: hidden;
+    }
+}
+#Formulario_Login{
+    border: solid 1px #ec703b;
+}
+#Login_boton{
+    border: solid 1px #ec703b;
+    background-color: #ec703b;
+}
