@@ -35,49 +35,57 @@
         </div>
       </div>
     </nav>
-    <div id="contenido" class="bg-image pb-0 justify-content-around" style="background-image: url('img/Bg/fondo_contactenos.svg'); height:100vh; background-position: center center; background-attachment: fixed;">
-      <div class="formcomentario">
-        <form action="formu.php" method="POST">
-          <table>
-            <tr>
-              <td> <input type="text" placeholder="Nombres y apellidos" name="nombre" required> </td>
-              <td></td>
-              <td> <input type="email" placeholder="Correo Electronico" name="email" required>  </td>
-            </tr>
-            <tr>
-              <td> <input type="phone" placeholder="Celular" name="celular" required></td>
-              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-              <td> 
-                <select name="asunto" required>
-                  <option selected hidden value="">Asunto</option>
-                  <option value="Pregunta">Pregunta </option>
-                  <option value="Queja">Queja </option>
-                  <option value="Reclamo">Reclamo </option>
-                  <option value="Sugerencia">Sugerencia </option>
-                </select>
-              </td>
-            </tr>
-          </table>
-          <br>
-          <textarea name="comentario" placeholder="Comentario:" id="c" cols="60" rows="15" required></textarea>
-          <br>
-          <input type="submit" value="Enviar">
-        </form>
+    <div id="contenido-contactenos" class="bg-image pb-0 justify-content-around" style="background-image: url('img/Bg/fondo_contactenos.svg'); height:100vh; background-position: center center; background-attachment: fixed;">
+      <div class="row ms-lg-5 p-3 w-100">
+        <div class="col-12 col-lg-4 ms-0 ms-lg-4 mt-lg-5 bg-secondary bg-opacity-25" id="div-form-contactenos">
+            <form id="formulario-pqrs" action="formu.php" method="POST">
+              <div class="row my-lg-3 w-100 my-1">
+                <div class="col-6 mx-1 my-2">
+                  <input class="bg-light bg-opacity-75" type="text" placeholder="Nombres y apellidos" name="nombre" required>
+                </div>
+                <div class="col-6 mx-1 my-2">
+                  <input class="bg-light bg-opacity-75" type="email" placeholder="Correo Electronico" name="email" required>  
+                </div>
+              </div>
+              <div class="row my-lg-3 w-100">
+                <div class="col-6 mx-1 my-2">
+                  <input class="bg-light bg-opacity-75" type="phone" placeholder="Celular" name="celular" required>
+                </div>
+                <div class="col-6 mx-1 my-2">
+                  <select class="bg-light bg-opacity-75 text-secondary" name="asunto" required>
+                      <option selected hidden value="">Asunto</option>
+                      <option class="text-black" value="Pregunta">Pregunta </option>
+                      <option class="text-black" value="Queja">Queja </option>
+                      <option class="text-black" value="Reclamo">Reclamo </option>
+                      <option class="text-black" value="Sugerencia">Sugerencia </option>
+                    </select>
+                </div>
+              </div>
+              <div class="row my-lg-3 mx-lg-1 w-100 mx-1 my-2">
+                <textarea name="comentario" placeholder="Comentario:" id="c" class="w-100 bg-light bg-opacity-75 text-break" rows="20" required></textarea>
+              </div>
+              <div class="row-cols-1 mb-2 w-100">
+                <input id="boton-enviar" class=" end-50 text-center text-black" type="submit" value="Enviar">
+              </div>
+            </form>
+        </div>
+        <div class="col-lg-7">
+        </div>
       </div>
     </div>            
-    <footer class="pt-0 py-1 my-0 text-center bg-black">
-        <ul class="container-fluid navbar-nav list-group-horizontal w-100 navbar navbar-expand-lg">
-          <li id="boton_entrar" class="nav-ite m-2 w-25">
-            <a class="ms-5 text-secondary border border-1 border-secondary nav-link w-25 position-absolute top-50 start-0 translate-middle-y" href="/Login.html">Entrar</a>
-          </li>
-          <li class="nav-item m-2 w-50">
-            <p class="text-center text-muted position-absolute top-50 start-50 translate-middle ">Copyright © 2022 SERVIDIESEL.FL<br> Todos los derechos reservados.</p>
-          </li>
-          <li class="nav-item  w-25">
-            <a href="Contactenos.html"><img src="./img/Iconos/Footer-Llaman.svg" class="img-fluid" height="auto" width="50" alt="Footer-Llaman"></a>
-          </li>
-        </ul>
-    </footer>  
+    <footer class="bg-black">
+      <div class="row w-100 ">
+        <div class="col-lg-4 text-center" id="boton_entrar">
+          <a class="ms-5 mt-2 text-light border border-1 border-secondary btn-outline-dark nav-link btn" href="/Login.html">Entrar</a>
+        </div>
+        <div class="col-lg-4">
+          <p class="mt-lg-2 text-center text-muted">Copyright © 2022 SERVIDIESEL.FL<br> Todos los derechos reservados.</p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <a href="Contactenos.html"><img src="./img/Iconos/Footer-Llaman.svg" class="img-fluid mt-lg-2 mb-2 " height="auto" width="50" alt="Footer-Llaman"></a>
+        </div>
+      </div>
+    </footer> 
     <script src="./Booststrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -5,11 +5,6 @@ html{
 #nav{
     background-color: #ec703b;
 }
-@media screen and (max-width: 992px) {
-    #boton_entrar{
-        visibility: hidden;
-    }
-}
 #Formulario_Login{
     border: solid 2px #ec703b;
     border-radius: 5px;;
@@ -25,4 +20,48 @@ html{
 #sing-information{
     border: solid 2px #ec703b ;
     border-radius: 5px;
+}
+#textos div{
+    border: solid 2px #ec703b;
+}
+#div-form-contactenos{
+    border: solid 3px #ec703b ;
+    border-radius: 5px;
+}
+#c{
+    border: solid 1px #ec703b ;
+    border-radius: 5px;
+    outline: #ec703b;
+}
+#formulario-pqrs input{
+    border:solid 1px #ec703b;
+    border-radius: 3px;
+    outline: #ec703b;
+}
+#formulario-pqrs select{
+    border:solid 1px #ec703b;
+    outline: #ec703b;
+}
+#formulario-pqrs textarea{
+    resize: none;
+}
+#boton-enviar{
+    background-color: transparent;
+}
+#boton-enviar:hover{
+    background-color: #ec703b;
+}
+@media screen and (max-width: 992px){
+    #boton_entrar{
+        visibility: hidden;
+    }
+    #contenido-nosotros{
+        overflow: scroll;
+    }
+    #contenido-servicios{
+        overflow: scroll;
+    }
+    #contenido-contactenos{
+        overflow: scroll;
+    }
 }
