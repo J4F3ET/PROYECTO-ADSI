@@ -36,7 +36,7 @@
       </div>
     </nav>
     <div id="contenido-contactenos" class="bg-image pb-0 justify-content-around" style="background-image: url('img/Bg/fondo_contactenos.svg'); height:100vh; background-position: center center; background-attachment: fixed;">
-      <div class="row ms-lg-5 p-3 w-100">
+      <div class="row ms-lg-5 ms-1 p-3 w-100">
         <div class="col-12 col-lg-4 ms-0 ms-lg-4 mt-lg-5 bg-secondary bg-opacity-25" id="div-form-contactenos">
             <form id="formulario-pqrs" action="formu.php" method="POST">
               <div class="row my-lg-3 w-100 my-1">
@@ -62,14 +62,40 @@
                 </div>
               </div>
               <div class="row my-lg-3 mx-lg-1 w-100 mx-1 my-2">
-                <textarea name="comentario" placeholder="Comentario:" id="c" class="w-100 bg-light bg-opacity-75 text-break" rows="20" required></textarea>
+                <textarea name="comentario" placeholder="Comentario:" id="c" class="w-100 bg-light bg-opacity-75 text-break" rows="10" required></textarea>
               </div>
               <div class="row-cols-1 mb-2 w-100">
-                <input id="boton-enviar" class=" end-50 text-center text-black" type="submit" value="Enviar">
+                <div class="btn text-center w-25 ms-1" id="div-boton-enviar">
+                  <input id="boton-enviar" class="end-50" type="submit" value="Enviar">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                  </svg>
+                </div>
               </div>
             </form>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-7" id="info-contactenos">
+          <div class="row ms-0 ms-lg-4 mt-lg-5 mt-3 bg-secondary bg-opacity-25 text-center fw-bold p-2">
+            <p>Conocer la opinión de nuestros clientes es muy importante para nosotros, extendemos 
+              la invitación a llenar nuestro formulario para solicitar información sobre los servicios que ofrecemos. 
+              A la brevedad posible, uno de nuestros representantes atenderá la solicitud.</p>
+          </div>
+          <div class="row ms-0 ms-lg-4 mt-lg-5 mt-3 bg-secondary bg-opacity-25 text-center fw-bold">
+            <h4 class="mt-2" >ServiDiesel FL</h4>
+            <p>Calle 17 C # 114 A 50 Interior 3, Fontibón Bogotá, Colombia</p>
+            <p>Contáctanos<br>
+              cstdieselsas@hotmail.com<br>
+              gerencia@cstdiesel.com<br>
+              Teléfono Fijo 2673954<br>
+              +57 (314) 200-9758<br>
+              +57 (311) 249-5396<br>
+              +57 (310) 819-0393<br>
+              +57 (313) 442-8112<br>
+              </p>
+              <p>Te atendemos<br>
+                Lunes a Viernes 8:00 am a 5:30 pm <br>
+                Sábados 8:00 am a 1:30 pm </p>
+          </div>
         </div>
       </div>
     </div>            
