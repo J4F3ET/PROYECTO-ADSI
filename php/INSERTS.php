@@ -25,6 +25,7 @@
         case "Sugerencia":
             $INSERT3="INSERT INTO sugerencia (id_usu_sug,sug,fech_alm) value(?,?,?)";
             break;
+    }
     echo($nombre);
     echo($celular);
     echo($email);

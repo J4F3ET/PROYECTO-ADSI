@@ -86,6 +86,6 @@ html{
         overflow: scroll;
     }
     #contenido-contactenos{
-        overflow: scroll;
+        overflow-y: scroll;
     }
 }
