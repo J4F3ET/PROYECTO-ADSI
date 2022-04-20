@@ -6,11 +6,20 @@ html{
     background-color: #ec703b;
 }
 #Formulario_Login{
+    padding: 50px;
     border: solid 2px #ec703b;
     border-radius: 5px;;
 }
+#Tituto-login{
+    margin: 0%;
+    border-bottom: #ec703b solid 1px;
+}
 #Login_boton{
     border: solid 1px #ec703b;
+    background-color: #ec703b;
+}
+#Login_boton:hover{
+    border: solid 1px #111110;
     background-color: #ec703b;
 }
 #list-sings{
@@ -82,6 +91,14 @@ html{
     #contenido-nosotros{
         overflow: scroll;
     }
+    #contenido-servicios{
+        overflow: scroll;
+    }
+    #contenido-contactenos{
+        overflow-y: scroll;
+    }
+}
+@media screen and (max-height: 630px) {
     #contenido-servicios{
         overflow: scroll;
     }

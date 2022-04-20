@@ -8,7 +8,6 @@
     $asunto=$_POST['asunto'];
     $comentario=$_POST['comentario'];
     $fecha= date("Y-m-d");
-
     $SELECT="SELECT";//<----------------en eta linea debe detectar el id del usuario y ver si existe o es nuevo usuario
     $INSERT="INSERT INTO usuario (nom_usu_reg,cel_usu_reg,email_usu_reg) value(?,?,?)";
     $INSERT2="INSERT INTO pqrs(id_pqrs,id_usu)value(?,?)";#hace el insert al intermedio de usuario y el id de pqrs

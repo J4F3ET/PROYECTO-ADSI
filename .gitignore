@@ -1,4 +1,19 @@
-aver.js
-java.html
-formu.php
-practica.py
+ignore
+<div class="w-100">
+              <select class="bg-transparent mt-5 dropdown-item-text border border-1 border-dark" name="Cuenta" id="Cuenta_admin">
+              <option class="bg-transparent" selected hidden value="">Cuenta</option>
+              <option class="bg-transparent" value="Administrador">Administrador</option>
+              <option class="bg-transparent" value="Secretario">Secretario</option>
+              </select>
+if(!empty($_POST["email_ad"]) && !empty($_POST["Cuenta"]) && !empty($_POST["pass"]) && !empty($_POST["nom_ad"]) && !empty($_POST["ape_ad"]) && !empty($_POST["numero"])&& !empty($_POST["usu_ad"])){
+    $INSERT="INSERT INTO admins(nom_admin,ape_admin,email_admin,pass_admin,usu_admin,contacto_admin)values(:nom_ad,:ape_ad,:email_ad,:pass,:usu_ad,:numero)";
+    $stmt= $conn->prepare($INSERT);
+    $stmt->bindparam(':nom_ad',$_POST['nom_ad']);
+    $stmt->bindparam(':ape_ad',$_POST['ape_ad']);
+    $password=password_hash($_POST['pass'], PASSWORD_BCRYPT);
+    $stmt->bindparam(':pass',$password);
+    $stmt->bindparam(':email_ad',$_POST['email_ad']);
+    $stmt->bindparam(':usu_ad',$_POST['usu_ad']);
+    $stmt->bindparam(':numero' ,$_POST['numero']);
+    $stmt->execute();
+  }
