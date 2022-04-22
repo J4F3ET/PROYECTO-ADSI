@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Inicio</title>
+        <title>Editor de notivias</title>
         <link rel="shortcut icon" href="./img/Iconos/icono.png">
         <link rel="stylesheet" href="./Booststrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="./css/global.css">
@@ -30,7 +30,7 @@
         </nav>
         <div id="contenido-sesion" class="bg-image pb-0 justify-content-around" style="background-image: url('./img/Bg/Fondo_Noticias.svg'); height:100vh; background-position: center center; background-attachment: fixed;">
           <div id="container_editor_noticias" class="row w-100">
-            <form class="row w-100 pt-5" action="#" method="get" enctype="multipart/formdata">
+            <form class="row w-100 pt-3 pt-lg-3 pt-xl-5" action="#" method="get" enctype="multipart/formdata">
               <div class="col-3 btn" id="contenedor_imagen_1_ntc">
                 <input type="file" name="imagen_1" id="imagen_1" class="collapse">
                 <figure class="col-12 ms-5" id="figure_img_1">
@@ -40,30 +40,33 @@
                   </label>
                   <img id="imagen_1_pre">
                 </figure>
+
               </div>
               <div class="col-3 btn "id="contenedor_imagen_2_ntc">
                 <input type="file" name="imagen_2" id="imagen_2" class="collapse" aria-label="">
                 <figure class="col-12" id="figure_img_2">
-                  <label for="imagen_2">
+                  <label class="col-12" for="imagen_2">
                     <img src="./img/Iconos/cloud-arrow-up.svg"alt="icono_subir_imagen" width="80%">
                     <p>Subir imagen <br>de la<br> noticia #2</p>
                   </label>
                   <img id="imagen_2_pre">
                 </figure>
               </div>
-              <div class="col-6" >
-                <textarea name="comentario" placeholder="Informacion de la noticia 1" id="edit_noticia_1" class="w-100 bg-light bg-opacity-75 text-break border-1 border-secondary rounded-3" rows="5" required></textarea>    
-                <textarea name="comentario" placeholder="Informacion de la noticia 2" id="edit_noticia_2" class="w-100 bg-light bg-opacity-75 text-break border-1 border-secondary rounded-3" rows="5" required></textarea>
+              <div class="col-6" id="div_text_area_noticias">
+                <textarea name="Informacion_de_la_noticia_1" placeholder="Informacion de la noticia 1" id="edit_noticia_1" class="w-100 bg-light bg-opacity-25 text-break border-1 border-secondary rounded-3 text-break text-center mb-2" rows="9" required></textarea>    
+                <textarea name="Informacion_de_la_noticia_2" placeholder="Informacion de la noticia 2" id="edit_noticia_2" class="w-100 bg-light bg-opacity-25 text-break border-1 border-secondary rounded-3 text-break text-center" rows="9" required></textarea>
+                <div class="row w-100 justify-content-end">
+                  <input class="btn" type="submit" name="enviar_noticia" id="enviar_noticia" value="Publicar">
+                </div>
               </div>
+              
             </form>
           </div>
         </div>
         <footer class="bg-black">
           <div class="row w-100 ">
             <div class="col-lg-4 text-center" id="boton_entrar">
-                <form class="text-center" action="#######################">
-                    <input class="ms-5 mb-2 mt-2 text-secondary border border-1 border-secondary nav-link btn" type="submit" value="Cerrar sesion">
-                </form>
+              <a clas="ms-5 mb-2 mt-2 text-secondary border border-1 border-secondary nav-link btn" href="./php/cerrarsesion_v_1.php">Cerrar sesion</a>
             </div>
             <div class="col-lg-4">
               <p class="mt-lg-2 text-center text-muted">Copyright © 2022 SERVIDIESEL.FL  Todos los derechos reservados.</p>

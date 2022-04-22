@@ -3,6 +3,7 @@ require './conn_v_1.php';
 $conn=conn_mysql::conn_f();
 $email=$_POST['email'];
 $password=$_POST['password'];
+if(!empty($email)||!empty($password)){
 session_start();
 $_SESSION['email']=$email;
 $consult="SELECT * FROM admins WHERE email_admin ='$email' AND `pass_admin` = '$password'";
@@ -16,7 +17,7 @@ if($row){
     window.location.href="../#";
     </script>';
 }
-
+}
 mysqli_free_result($result);
 mysqli_close($conn);
 ?>
