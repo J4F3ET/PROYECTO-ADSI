@@ -28,13 +28,34 @@
               </div>
             </div>
         </nav>
-        <div id="contenido" class="bg-image pb-0 justify-content-around" style="background-image: url('./img/Bg/Fondo_Noticias.svg'); height:100vh; background-position: center center; background-attachment: fixed;">
-          <div id="Noticias">
-            <div id="Noticia Derecha"></div>
-            <div id="Noticia Izquierda"></div>
-          </div>
-          <div id="aside">
-            <aside></aside>
+        <div id="contenido-sesion" class="bg-image pb-0 justify-content-around" style="background-image: url('./img/Bg/Fondo_Noticias.svg'); height:100vh; background-position: center center; background-attachment: fixed;">
+          <div id="container_editor_noticias" class="row w-100">
+            <form class="row w-100 pt-5" action="#" method="get" enctype="multipart/formdata">
+              <div class="col-3 btn" id="contenedor_imagen_1_ntc">
+                <input type="file" name="imagen_1" id="imagen_1" class="collapse">
+                <figure class="col-12 ms-5" id="figure_img_1">
+                  <label class="col-12" for="imagen_1">
+                    <img src="./img/Iconos/cloud-arrow-up.svg" alt="icono_subir_imagen" width="80%" >
+                    <p class="text-black text">Subir Imagen <br>de la <br> noticia #1</p>
+                  </label>
+                  <img id="imagen_1_pre">
+                </figure>
+              </div>
+              <div class="col-3 btn "id="contenedor_imagen_2_ntc">
+                <input type="file" name="imagen_2" id="imagen_2" class="collapse" aria-label="">
+                <figure class="col-12" id="figure_img_2">
+                  <label for="imagen_2">
+                    <img src="./img/Iconos/cloud-arrow-up.svg"alt="icono_subir_imagen" width="80%">
+                    <p>Subir imagen <br>de la<br> noticia #2</p>
+                  </label>
+                  <img id="imagen_2_pre">
+                </figure>
+              </div>
+              <div class="col-6" >
+                <textarea name="comentario" placeholder="Informacion de la noticia 1" id="edit_noticia_1" class="w-100 bg-light bg-opacity-75 text-break border-1 border-secondary rounded-3" rows="5" required></textarea>    
+                <textarea name="comentario" placeholder="Informacion de la noticia 2" id="edit_noticia_2" class="w-100 bg-light bg-opacity-75 text-break border-1 border-secondary rounded-3" rows="5" required></textarea>
+              </div>
+            </form>
           </div>
         </div>
         <footer class="bg-black">
@@ -50,5 +71,6 @@
           </div>
         </footer>
         <script src="./Booststrap/js/bootstrap.bundle.min.js"></script>
+        <script src="./js/app_sesion_v_1.js"></script>
     </body>
 </html>
