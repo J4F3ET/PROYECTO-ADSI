@@ -1,5 +1,4 @@
 // Obtener referencia al input y a la imagen
-
 const $imagen_1 = document.querySelector("#imagen_1"),
   $imagen_1_pre = document.querySelector("#imagen_1_pre");
 const $imagen_2 = document.querySelector("#imagen_2"),
