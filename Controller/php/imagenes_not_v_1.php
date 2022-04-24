@@ -9,8 +9,8 @@
         // $tamano_img_notc_2=$_FILES['imagen_2']['size'];
         // UBICAMOS EL DIRECTORIO EN EL SERVIDOR
     }
-    $carpeta_destino_img_1=$_SERVER['DOCUMENT_ROOT'].'/Proyecto SENA/img/img_subidas/img_actual_notc_1/';
-    $carpeta_destino_img_2=$_SERVER['DOCUMENT_ROOT'].'/Proyecto SENA/img/img_subidas/img_actual_notc_2/';
+    $carpeta_destino_img_1=$_SERVER['DOCUMENT_ROOT'].'/Proyecto SENA/Controller/img/img_subidas/img_actual_notc_1/';
+    $carpeta_destino_img_2=$_SERVER['DOCUMENT_ROOT'].'/Proyecto SENA/Controller/img/img_subidas/img_actual_notc_2/';
     // CARGAMOS EL ARCHIVO CON EL NOMBRE IMAGEN... PARA PODER REMPLAZAR CON LA PANTALLA DE NOTICIAS 
     move_uploaded_file($_FILES['imagen_1']['tmp_name'],$carpeta_destino_img_1."imagen_noticia_1.jpeg");
     move_uploaded_file($_FILES['imagen_2']['tmp_name'],$carpeta_destino_img_2."imagen_noticia_2.jpeg");
@@ -29,5 +29,5 @@
     fwrite($info_noticia_2,$texto_notc_2);
     fclose($info_noticia_1); 
     fclose($info_noticia_2);    
-    header('location:../sesion.html');
+    header('location:../../view/view_users/sesion.php');
 ?>

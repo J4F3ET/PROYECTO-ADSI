@@ -1,7 +1,7 @@
 // Obtener referencia al input y a la imagen
-const $imagen_1 = document.querySelector("#imagen_1"),
+const $imagen_1 = document.querySelector("#imagen_1");
   $imagen_1_pre = document.querySelector("#imagen_1_pre");
-const $imagen_2 = document.querySelector("#imagen_2"),
+const $imagen_2 = document.querySelector("#imagen_2");
   $imagen_2_pre = document.querySelector("#imagen_2_pre");
 $imagen_1.addEventListener("change", () => {
   const archivos_1 = $imagen_1.files;

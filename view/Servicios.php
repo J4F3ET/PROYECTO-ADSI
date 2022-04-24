@@ -35,17 +35,17 @@
         </div>
     </nav>
     <div id="contenido-servicios" class="bg-image justify-content-around" style="background-image: url('../Controller/img/Bg/fondo_servicios.svg'); height:100vh; background-position: center center; background-attachment: fixed;">
-      <div class="row w-100 p-lg-3 p-2" id="container">
+      <div class="row w-100 ps-lg-5 p-2" id="container_servicios">
         <div class="col-12 col-lg-7 bg-opacity-25 bg-secondary mt-lg-1 mt-xl-5" id="list-sings">
-          <div class="row">
-            <div class="col-6">
-              <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Diagnostico, mantenimiento, reparación y calibración.</a></div>
-              <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Sistemas de inyección diésel, motores, turbo alimentadores diésel.</a></div>
-              <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Suministro de repuestos.</a></div>
-              <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Scanner para diagnosticos de todas las marcas.</a></div>
-              <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Mantenimiento preventivo.</a></div>
+          <div class="row" id="lista_general_servicios">
+            <div class="col-6" id="list_sings_servicios_1">
+              <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a id="serv_1_diag" href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Diagnostico, mantenimiento, reparación y calibración.</a></div>
+              <div id="serv_2_sistem_inyec" class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Sistemas de inyección diésel, motores, turbo alimentadores diésel.</a></div>
+              <div id="serv_3_suministro" class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Suministro de repuestos.</a></div>
+              <div id="serv_4_scanner"class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Scanner para diagnosticos de todas las marcas.</a></div>
+              <div id="serv_5_mantenimiento"class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Mantenimiento preventivo.</a></div>
             </div>
-            <div class="col-6">
+            <div class="col-6" id="list_sings_servicios_2">
               <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Cambios de aceite, cambio sistemas de filtración, mantenimiento líneas de combustible.</a></div>
               <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Mantenimiento y revisión eléctrica.</a></div>
               <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a href="#"class="text-start nav-link text-black border-bottom border-secondary border-start">Mantenimiento radiador e intercoler.</a></div>
@@ -54,16 +54,22 @@
           </div>
         </div>
         <div class="ms-lg-3 col-lg-4 col-12 mt-3 mt-lg-1 mt-xl-5"id="sing-information">
-          <div class="row">
+          <div class="row w-100 h-50;">
             <p class="text-break">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta dolorum consectetur
+              accusamus nostrum omnis rerum officiis, neque voluptatibus commodi cum expedita. Eum
+              possimus facilis dignissimos explicabo aliquam, corporis praesentium ullam.
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum,
               quibusdam! Rerum optio eum sit voluptatem aperiam, laudantium commodi. 
               Reprehenderit error beatae vel quasi commodi maxime, repudiandae deserunt id? Minima, magnam!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, adipisci quas repellat quisquam
-               cum esse sed unde ex dolores nobis. Illum modi molestias culpa impedit, quibusdam totam debitis cum non.
-            </p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, adipisci quas repellat quisquam            </p>
           </div>
-          <div class="row m-auto" id="div-img-cambiante"><img  src="../Controller/img/Img_extras/MOTOR5.jpeg" alt="" id="imagen-de-opciones"></div>
+          <div class="row w-100 h-50 overflow-hidden" id="div-img-cambiante">
+            <figure class="mt-1 pb-5">
+              <img id="imagen-de-opciones" src="../Controller/img/Img_extras/MOTOR2.jpeg" alt="Servicios de la empresa">
+            </figure>
+            <!-- <img  src="../Controller/img/Img_extras/47f2a56d-ec13-4fcf-a093-896d89fb82d4.jpeg"> -->
+          </div>
         </div>
       </div>
     </div>
@@ -80,6 +86,7 @@
         </div>
       </div>
     </footer>
+    <script src="../Controller/js/app_servicios_v_1.js"></script>
     <script src="../Controller/Booststrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

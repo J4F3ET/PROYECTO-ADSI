@@ -3,7 +3,7 @@ html{
     position: relative;
 }
 #nav{
-    background-color: #ec703b;
+    background-color: #ec703b !important;
 }
 #Formulario_Login{
     padding: 50px;
@@ -22,13 +22,39 @@ html{
     border: solid 1px #111110;
     background-color: #ec703b;
 }
+#container_servicios{
+    height: 80vh;
+}
 #list-sings{
-    border: solid 2px #ec703b ;
+    border: solid 1px #ec703b ;
+    box-shadow: 0px 2px 4px #803a1b;
     border-radius: 5px;
 }
 #sing-information{
-    border: solid 2px #ec703b ;
+    border: solid 1px #ec703b ;
     border-radius: 5px;
+    box-shadow: 0px 2px 4px #803a1b;
+    height: fit-content;
+}
+#list_sings_servicios_1>div:hover{
+    box-shadow: 0px 2px 4px;
+}
+#list_sings_servicios_2>div:hover{
+    box-shadow: 0px 2px 4px;
+}
+#div-img-cambiante>figure{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    height:40vh;
+}
+#imagen-de-opciones{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-40%) translateX(-45%);
+    height: 100%;
 }
 #textos div{
     border: solid 2px #ec703b;
@@ -71,22 +97,10 @@ html{
     background-color: #ec703b;
     color: aliceblue;
 }
-#imagen-de-opciones{
-    padding: 0%;
-    border: 1px solid gray;
-    border-radius: 10px;
-    overflow: auto;
-    width: 100%;
-    height: auto;
-    max-zoom: 5px;
-}
 #info-contactenos div{
     border: #ec703b solid 1px;
     border-radius: 3px;
 }
-/* #contenedor_imagen_1_ntc{
-    cursor:po 
-} */
 label{
     cursor:pointer;
 }
@@ -156,13 +170,6 @@ label{
     justify-content: center;
     cursor: pointer;
 }
-#imagen_public_noticia_1{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    height: 100%;
-}
 #div_img_notcia_2{
     position: relative;
     overflow: hidden;
@@ -173,6 +180,22 @@ label{
     justify-content: center;
     cursor: pointer;
 }
+#div_img_notcia_1:hover{
+    zoom: 1.2;
+    box-shadow: 1px 3px 5px #000000;
+}
+#div_img_notcia_2:hover{
+    zoom: 1.2;
+    box-shadow: 1px 3px 5px #000000;
+}
+#imagen_public_noticia_1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    height: 100%;
+}
+
 #imagen_public_noticia_2{
     position: absolute;
     top: 50%;
@@ -195,24 +218,27 @@ label{
         visibility: collapse;
     }
     #contenido-nosotros{
-        overflow: scroll;
+        overflow-y: scroll;
     }
     #contenido-servicios{
-        overflow: scroll;
+        overflow-y: scroll;
     }
     #contenido-contactenos{
         overflow-y: scroll;
     }
 }
 @media screen and (max-height: 630px) {
-    #contenido-servicios{
-        overflow: scroll;
-    }
     #contenido-contactenos{
+        overflow-y: scroll;
+    }
+    #contenido-servicios{
         overflow-y: scroll;
     }
 }
 @media screen and (max-height: 524px) {
+    #contenido-servicios{
+        overflow-y: scroll;
+    }
     #contenido-sesion{
         overflow-y: scroll;
     }
