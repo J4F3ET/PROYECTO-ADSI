@@ -113,6 +113,6 @@
         </div>
       </div>
     </footer> 
-    <script src="./Booststrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../Controller/Booststrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
