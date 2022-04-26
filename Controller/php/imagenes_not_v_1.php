@@ -21,13 +21,16 @@
     if(file_exists('../archivos-txt/texto_noticia_2.txt')){
         unlink('../archivos-txt/texto_noticia_2.txt');
     }
+    // CREAR LOS DOCUMENTOS DE TEXTO PARA LA INFORMACION DE LAS NOTICIAS
     $info_noticia_1=fopen('../archivos-txt/texto_noticia_1.txt','c+') or die ('Error al crear archivo');
     $info_noticia_2=fopen('../archivos-txt/texto_noticia_2.txt','c+') or die ('Error al crear archivo');
     $texto_notc_1=$_POST['Informacion_de_la_noticia_1'];
     $texto_notc_2=$_POST['Informacion_de_la_noticia_2'];
+    // ESCRIBE LA INFORMACION
     fwrite($info_noticia_1,$texto_notc_1);
     fwrite($info_noticia_2,$texto_notc_2);
+    // CIERRA LOS DOCUMENTOS Y LOS GUARDA
     fclose($info_noticia_1); 
-    fclose($info_noticia_2);    
+    fclose($info_noticia_2);
     header('location:../../view/view_users/sesion.php');
 ?>

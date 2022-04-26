@@ -35,19 +35,35 @@
             </div>
         </nav>
         <div id="contenido" class="bg-image pb-0 justify-content-around" style="background-image: url('./Controller/img/Bg/Fondo_Noticias.svg'); height:100vh; background-position: center center; background-attachment: fixed;">
-          <div class="row w-100 py-3 py-lg-3 py-xl-5 px-5 h-100">
+          <div id="container_de_index" class="row w-100 py-3 py-lg-3 py-xl-5 px-5 h-100">
             <div class="col-3">
               <div id="div_img_notcia_1">
-                <img src="./Controller/img/img_subidas/img_actual_notc_1/imagen_noticia_1.jpeg" alt="imagen_noticia_1" id="imagen_public_noticia_1">
+                <img onmouseenter="evento()"  class="IMG_NOTICIA" src="./Controller/img/img_subidas/img_actual_notc_1/imagen_noticia_1.jpeg" alt="imagen_noticia_1" id="imagen_public_noticia_1">
               </div>
             </div>
             <div class="col-3">
               <div id="div_img_notcia_2">
-                <img src="./Controller/img/img_subidas/img_actual_notc_2/imagen_noticia_2.jpeg" alt="imagen_noticia_2" id="imagen_public_noticia_2">
+                <img class="IMG_NOTICIA" src="./Controller/img/img_subidas/img_actual_notc_2/imagen_noticia_2.jpeg" alt="imagen_noticia_2" id="imagen_public_noticia_2">
               </div>
             </div>
             <div class="col-6 pb-5">
-              <textarea disabled name="informacion_de_la_noticia_seleccionada"  id="informacion_de_la_noticia_seleccionada" class="w-100 bg-secondary bg-opacity-25 text-break border-1 border-secondary rounded-3 text-break text-center text-black" rows="10" cols="10"></textarea>
+              <div name="informacion_de_la_noticia_seleccionada" id="informacion_de_la_noticia_seleccionada" class="w-100 bg-secondary bg-opacity-25 text-break border-1 border-secondary rounded-3 text-break text-center text-black" rows="10" cols="10">
+                  <h4 class="mt-2" >ServiDiesel FL</h4>
+                  <p>Calle 17 C # 114 A 50 Interior 3, Fontibón Bogotá, Colombia</p>
+                  <p>Contáctanos<br>
+                    cstdieselsas@hotmail.com<br>
+                    gerencia@cstdiesel.com<br>
+                    Teléfono Fijo 2673954<br>
+                    +57 (314) 200-9758<br>
+                    +57 (311) 249-5396<br>
+                    +57 (310) 819-0393<br>
+                    +57 (313) 442-8112<br>
+                  </p>
+                  <p>Te atendemos<br>
+                      Lunes a Viernes 8:00 am a 5:30 pm <br>
+                      Sábados 8:00 am a 1:30 pm
+                  </p>
+              </div>
             </div>
           </div>
         </div>
@@ -67,3 +83,35 @@
         <script src="./Controller/Booststrap/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
+<?php
+  //AQUI SE RECIBE LA INFORMACION DE LA NOTICIA ENVIADA DESDE ADMIN 
+  $informacion_1=file_get_contents('./Controller/archivos-txt/texto_noticia_1.txt');
+  $informacion_2=file_get_contents('./Controller/archivos-txt/texto_noticia_2.txt');
+?>
+<script>
+    // PASAMOS LA INFORMACION A JAVASCRIPT PARA PODER MANIPULAR EVENTOS DE MOUSE
+    const informacion_1 = "<?php echo $informacion_1 ?>";
+    const informacion_2 = "<?php echo $informacion_2 ?>";
+    // Detectamos los eventos click para definir que informacion mostrar dependiendo de la informacion suministrada
+    document.querySelectorAll(".IMG_NOTICIA").forEach(el => {
+        el.addEventListener("mouseover", e => {
+          const id = e.target.getAttribute("id");
+          switch (id) {
+            case "imagen_public_noticia_1":
+                  document.getElementById('informacion_de_la_noticia_seleccionada').innerHTML='<h4 class="mt-2" >ServiDiesel FL</h4>'+informacion_1
+              break;
+            case "imagen_public_noticia_2":
+                document.getElementById('informacion_de_la_noticia_seleccionada').innerHTML='<h4 class="mt-2" >ServiDiesel FL</h4>'+informacion_2
+              break;
+            default:
+
+              break;
+          }
+        });
+      });
+    document.querySelectorAll("#container_de_index").forEach(el => {
+      el.addEventListener("mouseout", e => {
+        document.getElementById('informacion_de_la_noticia_seleccionada').innerHTML='<h4 class="mt-2" >ServiDiesel FL</h4><p>Calle 17 C # 114 A 50 Interior 3, Fontibón Bogotá, Colombia</p><p>Contáctanos<br>cstdieselsas@hotmail.com<br>gerencia@cstdiesel.com<br>Teléfono Fijo 2673954<br>+57 (314) 200-9758<br>+57 (311) 249-5396<br>+57 (310) 819-0393<br>+57 (313) 442-8112<br></p><p>Te atendemos<br>Lunes a Viernes 8:00 am a 5:30 pm <br>Sábados 8:00 am a 1:30 pm</p>'
+      });
+    });
+</script>

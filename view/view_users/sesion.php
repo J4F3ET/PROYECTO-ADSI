@@ -73,6 +73,5 @@
         </footer>
         <script src="../../Controller/Booststrap/js/bootstrap.bundle.min.js"></script>
         <script src="../../Controller/js/app_sesion_v_1.js"></script>
-        <script src="../../Controller/js/app_sesion_info_noticias_v_1.js"></script>
     </body>
 </html>

@@ -48,14 +48,14 @@
             <div class="col-6" id="list_sings_servicios_2">
               <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a id="serv_6_Cambio"class="text-start nav-link text-black border-bottom border-secondary border-start">Cambios de aceite, cambio sistemas de filtración, mantenimiento líneas de combustible.</a></div>
               <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a id="serv_7_mantenimiento_electronico"class="text-start nav-link text-black border-bottom border-secondary border-start">Mantenimiento y revisión eléctrica.</a></div>
-              <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a id="serv_8_mantenimiento_radiador"class="text-start nav-link text-black border-bottom border-secondary border-start">Mantenimiento radiador e intercoler.</a></div>
+              <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a id="serv_8_mantenimiento_radiador"class="text-start nav-link text-black border-bottom border-secondary border-start">Mantenimiento radiador e intercooler.</a></div>
               <div class="row my-lg-4 my-xxl-5 ms-lg-1"><a id="serv_9_bombas"class="text-start nav-link text-black border-bottom border-secondary border-start"> Bombas de agua, recargas fanclutch.</a></div>
             </div>
           </div>
         </div>
         <div class="ms-lg-3 col-lg-4 col-12 mt-3 mt-lg-1 mt-xl-5"id="sing-information">
           <div class="row w-100 h-50">
-            <p id="parrafo_servicios" class="text-break">
+            <p id="parrafo_servicios" class="text-break ps-4">
               En ServiDieselFL.SAS tenemos un catalogo variado de servicios para nuestros clientes.<br>Porfavor selecione alguno de las opciones del panel izquierdo. Gracias<br><br>En el caso de los celulares el panel se ubica en la parte supérior de este panel. Gracias por su atención.
             </p>
           </div>
