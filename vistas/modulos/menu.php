@@ -2,25 +2,25 @@
     <section class="sidebar">
         <ul class="sidebar-menu">
             <li class="active">
-                <a href="">
+                <a href="inicio">
                     <i class="fa fa-home"></i>
                     <span>Inicio</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="editor">
                 <i class="fa fa-newspaper-o"></i>
                     <span>Editor</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="pqrs">
                     <i class="fa fa-bar-chart"></i>
                     <span>PQRS</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="gestor-pqrs">
                     <i class="fa fa-list"></i>
                     <span>Gestión PQRS</span>
                 </a>
@@ -35,19 +35,19 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="">
+                        <a href="tutorial-editor">
                             <i class="fa fa-calendar"></i>
                             <span>Como usar el editor</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="tutorial-pqrs">
                             <i class="fa fa-book"></i>
                             <span>Como leer las PQRS</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="tutorial-respuesta-pqrs">
                             <i class="fa fa-pencil-square-o"></i>
                             <span>Responder PQRS</span>
                         </a>

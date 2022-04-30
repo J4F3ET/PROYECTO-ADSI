@@ -58,7 +58,17 @@
     // Añade el menu lateral de sistema de usuarios
     include "modulos/menu.php";
     // contenido Temporal
-    include "modulos/contenido.php";
+    if(isset($_GET["ruta"])){
+      if($_GET["ruta"]=="inicio"||
+         $_GET["ruta"]=="editor"||
+         $_GET["ruta"]=="pqrs"||
+         $_GET["ruta"]=="gestor-pqrs"||
+         $_GET["ruta"]=="tutorial-editor"||
+         $_GET["ruta"]=="tutorial-pqrs"||
+         $_GET["ruta"]=="tutorial-respuesta-pqrs"){
+         include "modulos/".$_GET["ruta"].".php";
+      }
+    }
     // Incorporar el footer
     include "modulos/footer.php"
   ?>
