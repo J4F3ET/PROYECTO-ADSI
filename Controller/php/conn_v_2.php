@@ -7,7 +7,7 @@ class coneccionBD{
         $dbpassword="";
         try {
             //https://www.php.net/manual/es/class.pdo.php <-- PDO
-            $conn= new PDO("mysql:host=$host;$dbname",$dbusername,$dbpassword);
+            $conn= new PDO("mysql:$host;$dbname",$dbusername,$dbpassword);
             echo("Conectó");
         } catch (PDOException $ExpError) {
             echo("No conectó,error $ExpError");
