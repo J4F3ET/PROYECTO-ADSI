@@ -3395,6 +3395,19 @@ table.text-center th {
 .login-page,
 .register-page {
   background: #d2d6de;
+  background: linear-gradient(rgb(228, 97, 10),rgb(253, 202, 168));
+}
+.login-page #back{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top:0;
+  left:0;
+  background: url(../../img/plantilla/back.jpeg);
+  opacity: 0.05;
+  background-size: cover;
+  overflow: hidden;
+  z-index: -1;
 }
 .login-box,
 .register-box {

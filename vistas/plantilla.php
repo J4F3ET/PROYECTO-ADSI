@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>pagina web</title>
+  <link rel="icon" href="vistas/img/plantilla/icono-blanco.png">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -49,10 +50,11 @@
 
 </head>
 <!-- CUERPO DEL DOCUMENTO -->
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
   <?php 
+  // LA CLASEE WRAPPER SEPARA AL SISTEMA DE CUANDO ESTA LOGEADO <------------------------------- SUPER IMPORTANTE
+  if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"]== "ok") {
+    echo '<div class="wrapper">';
     // Añade el cabezote del sistema de usuarios
     include "modulos/cabezote.php";
     // Añade el menu lateral de sistema de usuarios
@@ -67,12 +69,22 @@
          $_GET["ruta"]=="tutorial-pqrs"||
          $_GET["ruta"]=="tutorial-respuesta-pqrs"){
          include "modulos/".$_GET["ruta"].".php";
+      }else{
+        include "modulos/404.php";
       }
+    }else{
+      include "modelo/inicio.php";
     }
     // Incorporar el footer
-    include "modulos/footer.php"
+    include "modulos/footer.php";
+    echo '</div>';
+  }else{
+    include "modulos/navegador.php";
+    include "modulos/login.php";
+    include "modulos/footer-sin-entrar.php";
+  }
+  
   ?>
-</div>
 <!-- ./wrapper -->
 <script src="vistas/js/plantilla.js"></script>
 </body>
