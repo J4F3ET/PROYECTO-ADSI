@@ -30,7 +30,7 @@
 					<!-- DROPDOWN -->
 					<ul class="dropdown-menu">
 						<li class="user-body">
-							<a href="" class="btn btn-default btn-flat"></a>
+							<a href="salir" class="btn btn-default btn-flat">Salir</a>
 						</li>
 					</ul>
 				</li>

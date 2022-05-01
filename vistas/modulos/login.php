@@ -20,6 +20,12 @@
         <div class="text-center">
             <button type="submit" class="btn btn-secondary btn-block btn-flat">Ingresar</button>
         </div>  
+        <div>
+          <?php
+            $login = new ControladorUsuarios();
+            $login -> ctrIngregarUsuario();
+          ?>
+        </div>
     </form>
   </div>
 </div>

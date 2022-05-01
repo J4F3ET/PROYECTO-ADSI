@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +70,8 @@
          $_GET["ruta"]=="gestor-pqrs"||
          $_GET["ruta"]=="tutorial-editor"||
          $_GET["ruta"]=="tutorial-pqrs"||
-         $_GET["ruta"]=="tutorial-respuesta-pqrs"){
+         $_GET["ruta"]=="tutorial-respuesta-pqrs"||
+         $_GET["ruta"]=="salir"){
          include "modulos/".$_GET["ruta"].".php";
       }else{
         include "modulos/404.php";
