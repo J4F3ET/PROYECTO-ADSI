@@ -1,7 +1,7 @@
-<aside class="main-sidebar">
+<aside id="menu-anside-cabezote" class="main-sidebar">
     <section class="sidebar">
         <ul class="sidebar-menu">
-            <li class="active">
+            <li class="">
                 <a href="inicio">
                     <i class="fa fa-home"></i>
                     <span>Inicio</span>

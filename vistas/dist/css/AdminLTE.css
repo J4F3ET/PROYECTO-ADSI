@@ -23,6 +23,18 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+#navegacion-barra{
+  background: #ec703b !important;
+}
+#navegacion-barra:hover{
+  background: #ec703b !important;
+}
+#logo-cabezote{
+  background: #ec703b !important;
+}
+#boton-barra-navegacion-cabezote:hover{
+  background: #d8602d !important;
+}
 /* Layout */
 .wrapper {
   height: 100%;
