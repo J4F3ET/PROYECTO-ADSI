@@ -83,11 +83,23 @@
     include "modulos/footer.php";
     echo '</div>';
   }else{
+    // SISTEMA SIN INICIAR SESION <---------------------------------------
     include "modulos/navegador.php";
-    include "modulos/login.php";
-    include "modulos/footer-sin-entrar.php";
+    include "modulos/menu-navegador.php";
+    if(isset($_GET["ruta"])){
+      if($_GET["ruta"]=="servicios"||
+         $_GET["ruta"]=="noticias"||
+         $_GET["ruta"]=="contactenos"||
+         $_GET["ruta"]=="nosotros"||
+         $_GET["ruta"]=="login"){
+         include "modulos/".$_GET["ruta"].".php";
+      }else{
+        include "modulos/404.php";
+      }
+    }else{
+      include "modulos/noticias.php";
+    }
   }
-  
   ?>
 <!-- ./wrapper -->
 <script src="vistas/js/plantilla.js"></script>
