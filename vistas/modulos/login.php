@@ -1,11 +1,10 @@
 <div id="back"></div>
 <div class="login-box">
-
   <div class="login-logo">
-    <img src="vistas/img/plantilla/logo-login.png"class="img-responsive" style="padding:0px 90px 0px 90px" >
+    <img src="vistas/img/plantilla/logo-login.png"class="img-responsive" style="padding:0px 90px 0px 90px;" >
   </div>
   <!-- /.login-logo -->
-  <div class="login-box-body text-black" style="border:solid 0px; border-radius:6px ">
+  <div class="login-box-body text-black" style="border:solid 1px; border-radius:6px ">
     <p class="login-box-msg">Ingresar al sistema</p>
     <form method="post">
         <div class="form-group has-feedback">
@@ -27,5 +26,5 @@
         </div>
     </form>
   </div>
-  <strong> Copyright &copy; 2022 SERVIDIESEL.FL.</strong> 
+  <strong class="text-black" > Copyright &copy; 2022 SERVIDIESEL.FL.</strong> 
 </div>

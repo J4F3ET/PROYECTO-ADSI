@@ -1,4 +1,4 @@
 <?php
 session_destroy();
 
-echo '<script>window.location="ingresar";</script>';
+echo '<script>window.location="noticias";</script>';
