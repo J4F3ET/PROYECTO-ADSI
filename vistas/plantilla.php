@@ -42,6 +42,9 @@
   <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
   <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
   <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
+  <!-- Sweetalert 2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script> -->
 </head>
 <!-- CUERPO DEL DOCUMENTO -->
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
@@ -98,5 +101,6 @@
   ?>
 <!-- ./wrapper -->
 <script src="vistas/js/plantilla.js"></script>
+<script src="vistas/js/usuarios.js"></script>
 </body>
 </html>

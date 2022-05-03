@@ -3,6 +3,7 @@
     <section class="content-header">
       <h1>
         Administrador de usuarios
+        <small>Perfil</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></li>
@@ -13,7 +14,9 @@
       <div class="box">
         <div class="box-header with-border">
           <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">
+
             Agregar Usuario
+
           </button>
         </div>
         <div class="box-body">
@@ -50,6 +53,7 @@
       </div>
     </section>
   </div>
+
   <!-- MODAL AGREGAR USUARIOS -->
 <div id="modalAgregarUsuario" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -100,28 +104,21 @@
             <!-- ENTRADA DE FOTO-->
             <div class="form-group">
               <div class="panel">Subir foto</div>
-              <input type="file" name="nuevaFoto" class="nuevaFoto">
-              <script>
-                $(".nuevafoto").change(function(){    
-                      var imagen = this.Files[0];
-                      console.log("imagen",imagen);
-                      })
-              </script>
+              <input type="file" name="nuevaFoto" id="nuevaFoto">
               <p class="help-block">Peso maximo de la foto 200mb</p>
               <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="100px">
+
             </div>
           </div>
         </div>
         <!-- pie de pagina del modal -->
         <div class="modal-footer">
+
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-          <button type="submit" class="btn btn-primary">Guardar usuario</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">Guardar usuario</button>
         </div>
-          <?php
-          $crearUsuario = new ControladorUsuarios();
-          $crearUsuario -> ctrCrearUsuario();
-          ?>
-      </form>
-    </div>
+      </div>
+    </form>
+
   </div>
 </div>
