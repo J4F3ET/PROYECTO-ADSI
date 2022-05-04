@@ -29,21 +29,33 @@
               <th>Acciones</th>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Usuario Administrador</td>
-                <td>Admin</td>
-                <td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>
-                <td>Administrador</td>
-                <td><button class="btn btn-success btn-xs">Activado</button></td>
-                <td>2022-12-11 12:05:32</td>
-                <td>
-                  <div class="btn-group">
-                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                  </div>
-                </td>
-              </tr>
+              <?php
+                $item=null;
+                $valor=null;
+                $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item,$valor);
+                
+                foreach ($usuarios as $key => $value) {
+                  echo'<tr>
+                          <td>1</td>
+                          <td>'.$value["nombre"].'</td>
+                          <td>'.$value["usuario"].'</td>';
+                          if($value["foto"] != ""){
+                            echo'<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
+                          }else{
+                            echo'<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
+                          }
+                          echo'<td>'.$value["perfil"].'</td>
+                          <td><button class="btn btn-success btn-xs">Activado</button></td>
+                          <td>'.$value["ultimo_login"].'</td>
+                          <td>
+                            <div class="btn-group">
+                              <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                              <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                            </div>
+                          </td>
+                        </tr>';
+                }
+              ?>
             </tbody>
           </table>
         </div>
