@@ -101,14 +101,8 @@
             <div class="form-group">
               <div class="panel">Subir foto</div>
               <input type="file" name="nuevaFoto" class="nuevaFoto">
-              <script>
-                $(".nuevafoto").change(function(){    
-                      var imagen = this.Files[0];
-                      console.log("imagen",imagen);
-                      })
-              </script>
-              <p class="help-block">Peso maximo de la foto 200mb</p>
-              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="100px">
+              <p class="help-block">Peso maximo de la foto 2mb</p>
+              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previzualizar" width="100px">
             </div>
           </div>
         </div>

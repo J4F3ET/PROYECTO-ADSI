@@ -29,29 +29,46 @@ class ControladorUsuarios{
         if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$_POST["nuevoNombre"])&&
            preg_match('/^[a-zA-Z0-9]+$/',$_POST["nuevoUsuario"])&&
            preg_match('/^[a-zA-Z0-9]+$/',$_POST["nuevoPassword"])){
+             if(isset($_FILES["nuevaFoto"]["tmp_name"])){
+              list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
+              $nuevoAncho = 500;
+              $nuevoAlto = 500;
+              $directorio = "vistas/img/usuarios/".$_POST["nuevoUsuario"];
+              mkdir($directorio, 0755);
 
-            $tabla="usuario";
-            $dato =  array('nombre' => $_POST["nuevoNombre"],
-                            'usuario' => $_POST["nuevoUsuario"],
-                            'password' => $_POST["nuevoPassword"],
-                            'perfil' => $_POST["nuevoPerfil"]);
-            $respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla,$dato);
-            echo '<script>window.location = "inicio"</script>';
-        }else{
-          // ALERTA POR SI SON CARACTERES ESPECIALES NO EPERMIRTIDOS Y LO REMITE A USUARIOS O INICIO
-          echo '<script>
-            Swal.fire({
-              icon: "error",
-              title: "Oops... <br>El usuario no puede ir vacio o con caracteres especiales",
-              showConfirmButton: true,
-              confirButtonText: "Cerrar",
-              closeOnConfirm: false
-            }).then((result)=>{
-              if(result.evalue){
-                window.location = "inicio"
+              if($_FILES["nuevaFoto"]["type"]==["image/jpeg"]){
+                $aleatorio = mt_rand(100,999);
+                var_dump(getimagesize($_FILES["nuevaFoto"]["tmp_name"]));
+                $ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio."jpg";
+                $origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);
+                $destino = imagecreatetruecolor($nuevoAncho,$nuevoAlto);
+                imagecopyresized($destino,$origen,0,0,0,0,$nuevoAncho,$nuevoAlto,$ancho,$alto);
+                imagejpeg($destino,$ruta);
               }
-            });
-          </script>';
+             }
+
+        //     $tabla="usuario";
+        //     $dato =  array('nombre' => $_POST["nuevoNombre"],
+        //                     'usuario' => $_POST["nuevoUsuario"],
+        //                     'password' => $_POST["nuevoPassword"],
+        //                     'perfil' => $_POST["nuevoPerfil"]);
+        //     $respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla,$dato);
+        //     echo '<script>window.location = "inicio"</script>';
+        // }else{
+        //   // ALERTA POR SI SON CARACTERES ESPECIALES NO EPERMIRTIDOS Y LO REMITE A USUARIOS O INICIO
+        //   echo '<script>
+        //     Swal.fire({
+        //       icon: "error",
+        //       title: "Oops... <br>El usuario no puede ir vacio o con caracteres especiales",
+        //       showConfirmButton: true,
+        //       confirButtonText: "Cerrar",
+        //       closeOnConfirm: false
+        //     }).then((result)=>{
+        //       if(result.evalue){
+        //         window.location = "inicio"
+        //       }
+        //     });
+        //   </script>';
         }
       }
     }

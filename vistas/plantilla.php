@@ -10,7 +10,7 @@
   <link rel="icon" href="vistas/img/plantilla/icono-blanco.png">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<!-- PLUGINS DE CSS -->
+  <!-- PLUGINS DE CSS -->
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -27,7 +27,7 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
-<!-- PLUGINS DE JAVASCRIT -->
+  <!-- PLUGINS DE JAVASCRIT -->
   <!-- jQuery 3 -->
   <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
@@ -93,8 +93,7 @@
     }else{
       include "modulos/noticias.php";
     }
-    if($_GET['ruta']=='login'){
-    }else{
+    if(empty($_GET["ruta"])||$_GET["ruta"]!="login"){
       include "modulos/footer-sin-entrar.php";
     }
   }
