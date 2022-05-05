@@ -124,4 +124,115 @@ class ControladorUsuarios{
       $respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
       return $respuesta;
     }
+    public static function ctrEditarUsuario(){
+      if (isset($_POST["editarUsuario"])) {
+        if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$_POST["editarNombre"])){
+          $ruta = $_POST["fotoActual"];
+          if(isset($_FILES["editarFoto"]["tmp_name"])){
+            list($ancho, $alto) = getimagesize($_FILES["editarFoto"]["tmp_name"]);
+            $nuevoAncho = 500;
+            $nuevoAlto = 500;
+            $directorio = "vistas/img/usuarios/".$_POST["editarUsuario"];
+            if(!empty($_POST["fotoActual"])){
+              unlink($_POST["fotoActual"]);
+            }else{
+              mkdir($directorio, 0755);
+            }
+            // TIPO DE IMAGENES JPG O PNG
+            if($_FILES["editarFoto"]["type"] == "image/jpeg"){
+              $aleatorio = mt_rand(100,999);
+              $ruta = "vistas/img/usuarios/".$_POST["editarUsuario"]."/".$aleatorio.".jpg";
+              //intalar la extencion ;extension=gd' al xammp
+              $origen = imagecreatefromjpeg($_FILES["editarFoto"]["tmp_name"]);
+              $destino = imagecreatetruecolor($nuevoAncho,$nuevoAlto);
+              imagecopyresized($destino,$origen,0,0,0,0,$nuevoAncho,$nuevoAlto,$ancho,$alto);
+              imagejpeg($destino,$ruta);
+            }
+          }
+          // VALIDACION JPG
+          if(isset($_FILES["editarFoto"]["tmp_name"])){
+            list($ancho, $alto) = getimagesize($_FILES["editarFoto"]["tmp_name"]);
+            $nuevoAncho = 500;
+            $nuevoAlto = 500;
+            $directorio = "vistas/img/usuarios/".$_POST["editarUsuario"];
+            mkdir($directorio, 0755);
+            // TIPO DE IMAGENES JPG O PNG
+            if($_FILES["editarFoto"]["type"] == "image/png"){
+              $aleatorio = mt_rand(100,999);
+              $ruta = "vistas/img/usuarios/".$_POST["editarUsuario"]."/".$aleatorio.".png";
+              //intalar la extencion ;extension=gd' al xammp
+              $origen = imagecreatefrompng($_FILES["editarFoto"]["tmp_name"]);
+              $destino = imagecreatetruecolor($nuevoAncho,$nuevoAlto);
+              imagecopyresized($destino,$origen,0,0,0,0,$nuevoAncho,$nuevoAlto,$ancho,$alto);
+              imagepng($destino,$ruta);
+            }
+            
+           
+          }
+          $tabla="usuario";
+          if($_POST["editarPassword"]!=""){
+            if(preg_match('/^[a-zA-Z0-9]+$/',$_POST["editarPassword"])) {
+              $encriptado = crypt($_POST["editarPassword"],'$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+            }else{
+                echo '<script>
+                        Swal.fire({
+                          icon: "error",
+                          title: "Oops... <br>La contraseña no puede ir vacia o con caracteres especiales",
+                          showConfirmButton: true,
+                          confirButtonText: "Cerrar",
+                          closeOnConfirm: false
+                        }).then((result)=>{
+                          if(result.evalue){
+                            window.location = "inicio"
+                          }
+                        });
+                      </script>';
+            }
+          }else{
+            $encriptado= $_POST["passwordActual"];
+          }
+          $dato =  array('nombre' => $_POST["editarNombre"],
+          'usuario' => $_POST["editarUsuario"],
+          'password' => $encriptado,
+          'perfil' => $_POST["editarPerfil"],
+          'foto'=> $ruta);
+          $respuesta = ModeloUsuarios::mdlEditarUsuario($tabla,$dato);
+          if($respuesta == "ok"){
+            echo "<script>
+                    Swal.fire({
+                      icon: 'success',
+                      title: 'El usuario ha sido editado exitosamente',
+                      showConfirmButton: true,
+                      confirButtonText: 'Cerrar',
+                      closeOnConfirm: false
+                    }).then((result)=>{
+                      if(result.evalue){
+                        window.location = 'inicio'
+                      }
+                    });
+                  </script>";
+          }
+          
+
+
+
+
+
+        }else{
+          echo "<script>
+                  Swal.fire({
+                    icon: 'error',
+                    title: '¡El nombre no puede ir vacío o llevar caracteres especiales!',
+                    showConfirmButton: true,
+                    confirButtonText: 'Cerrar',
+                    closeOnConfirm: false
+                  }).then((result)=>{
+                    if(result.evalue){
+                      window.location = 'inicio'
+                    }
+                  });
+                </script>";
+        }
+      }
+    }
 }
