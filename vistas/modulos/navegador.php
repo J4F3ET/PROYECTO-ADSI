@@ -1,6 +1,6 @@
 <header class="main-header">
 	<!-- LOGOTIPO -->
-	<a href="inicio" id="logo-cabezote" class="logo">
+	<a href="noticias" id="logo-cabezote" class="logo">
 		<!-- logo mini -->
 		<span class="logo-mini">
 			<img src="vistas/img/plantilla/icono-blanco.png" class="img-responsive" style="padding: 5px 5px">

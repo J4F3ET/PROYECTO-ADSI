@@ -55,4 +55,78 @@ $(".btnEditarUsuario").click(function(){
             }
         }
     });
-})  
+})
+$(".btnActivar").click(function(){
+    var idUsuario = $(this).attr("idUsuario");
+    var estadoUsuario = $(this).attr("estadoUsuario");
+    var datos = new FormData();
+    datos.append("activarId",idUsuario);
+    datos.append("activarUsuario",estadoUsuario);
+    $.ajax({
+        url:"ajax/usuarios.ajax.php",
+        method:"POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta){
+            
+        }
+    })
+    if(estadoUsuario == 0){
+        $(this).removeClass('btn-success');
+        $(this).addClass('btn-danger');
+        $(this).html("Desactivado");
+        $(this).attr("estadoUsuario",1);
+    }else{
+        $(this).removeClass('btn-danger');
+        $(this).addClass('btn-success');
+        $(this).html("Activado");
+        $(this).attr("estadoUsuario",0);
+    }
+})
+//PARA QUE NO SE REPITAN LOS USUARIOS
+$('#nuevoUsuario').change(function(){
+    var usuario = $(this).val();
+    var datos = new FormData;
+    datos.append("validarUsuario",usuario);
+    $.ajax({
+        url:"ajax/usuarios.ajax.php",
+        method:"POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta){
+            if (respuesta) {
+                user=$('#nuevoUsuario').val();
+                $('#nuevoUsuario').before(function(){
+                    Swal.fire('El usuario  "'+ user + '" ya se encuentra registrado en la base de datos');
+                });
+                $('#nuevoUsuario').val("");
+            }
+        }
+    })
+
+
+});
+// PARA ELIMINAR USUARIO ---> ALERTA <----
+$('.btnEliminarUsuario').click(function(){
+    idUsuario = $(this).attr('idUsuario');
+    fotoUsuario = $(this).attr('fotoUsuario');
+    nombreUsuario = $(this).attr('nombreUsuario');
+    Swal.fire({
+        title: '¿Está seguro de borrar el usuario?',
+        text: "¡Si no lo está puede cancelar la acción!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText:'Cancelar',
+        confirmButtonText: 'Borrar Usuario'
+    }).then((result) => {
+        if (result.value) {
+            window.location = "index.php?ruta=inicio&idUsuario="+idUsuario+"&usuario="+nombreUsuario+"&fotoUsuario="+fotoUsuario;
+        }
+    })
+})

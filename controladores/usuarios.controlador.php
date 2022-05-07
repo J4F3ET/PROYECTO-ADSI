@@ -10,23 +10,37 @@ class ControladorUsuarios{
                   $valor = $_POST["ingUsuario"];
                   $respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla,$item,$valor);
                   if(is_array($respuesta)){
-                    if($respuesta["usuario"] == $_POST["ingUsuario"] && 
-                      $respuesta["password"] == $encriptado){
-                      echo '<div class="alert alert-succes">Bienvenido</div>';
-                      $_SESSION["iniciarSesion"] = "ok";
-                      $_SESSION["id"] = $respuesta["id"];
-                      $_SESSION["nombre"] = $respuesta["nombre"];
-                      $_SESSION["usuario"] = $respuesta["usuario"];
-                      $_SESSION["foto"] = $respuesta["foto"];
-                      $_SESSION["perfil"] = $respuesta["perfil"];
-                      echo '<script>window.location="inicio";</script>';
+                    if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptado){
+                      if($respuesta['estado']==1){
 
+                        $_SESSION["iniciarSesion"] = "ok";
+                        $_SESSION["id"] = $respuesta["id"];
+                        $_SESSION["nombre"] = $respuesta["nombre"];
+                        $_SESSION["usuario"] = $respuesta["usuario"];
+                        $_SESSION["foto"] = $respuesta["foto"];
+                        $_SESSION["perfil"] = $respuesta["perfil"];
+                        date_default_timezone_set("America/Bogota");
+                        $fecha=date('Y-m-d');
+                        $hora = date('H:i:S');
+                        $fechaActual= $fecha.' '.$hora;
+                        $item1 = 'ultimo_login';
+                        $valor1= $fechaActual;
+
+                        $item2='id';
+                        $valor2=$respuesta['id'];
+
+                        $ultimoLogin = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
+                        if($ultimoLogin == "ok"){
+                          echo '<script>window.location="inicio";</script>';
+                        }
+                      }else{
+                        echo "<script>Swal.fire({icon: 'error',title: 'El usuario esta desactivado',confirmButtonText:'Cerrar'})</script>";
+                      }
                     }else{
-                      echo "<script>Swal.fire({icon: 'error',title: 'Contraseña incorrecta intentelo de nuevo',confirButtonText:'Cerrar'})</script>";
-                      
+                      echo "<script>Swal.fire({icon: 'error',title: 'Contraseña incorrecta intentelo de nuevo',confirmButtonText:'Cerrar'})</script>";
                     }
                   }else{
-                    echo "<script>Swal.fire({icon: 'info',title: 'Usuario no encontrado',confirButtonText:'Cerrar'})</script>";
+                    echo "<script>Swal.fire({icon: 'info',title: 'Usuario no encontrado',confirmButtonText:'Cerrar'})</script>";
                   }
             }
         }
@@ -92,15 +106,10 @@ class ControladorUsuarios{
                       icon: 'success',
                       title: 'Guardado exitoso',
                       showConfirmButton: true,
-                      confirButtonText: 'Cerrar',
-                      closeOnConfirm: false
-                    }).then((result)=>{
-                      if(result.evalue){
-                        window.location = 'inicio'
-                      }
+                      timer: 1500,
                     });
+                    window.location = 'inicio'
                   </script>";
-
         }else{
           // ALERTA POR SI SON CARACTERES ESPECIALES NO EPERMIRTIDOS Y LO REMITE A USUARIOS O INICIO
           echo '<script>
@@ -108,13 +117,9 @@ class ControladorUsuarios{
               icon: "error",
               title: "Oops... <br>El usuario no puede ir vacio o con caracteres especiales",
               showConfirmButton: true,
-              confirButtonText: "Cerrar",
-              closeOnConfirm: false
-            }).then((result)=>{
-              if(result.evalue){
-                window.location = "inicio"
-              }
+              confirmButtonText: "Cerr
             });
+            window.location = "inicio"
           </script>';
         }
       }
@@ -128,7 +133,7 @@ class ControladorUsuarios{
       if (isset($_POST["editarUsuario"])) {
         if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$_POST["editarNombre"])){
           $ruta = $_POST["fotoActual"];
-          if(isset($_FILES["editarFoto"]["tmp_name"])){
+          if(isset($_FILES["editarFoto"]["tmp_name"]) && !empty($_FILES["editarFoto"]["tmp_name"])){
             list($ancho, $alto) = getimagesize($_FILES["editarFoto"]["tmp_name"]);
             $nuevoAncho = 500;
             $nuevoAlto = 500;
@@ -150,7 +155,7 @@ class ControladorUsuarios{
             }
           }
           // VALIDACION JPG
-          if(isset($_FILES["editarFoto"]["tmp_name"])){
+          if(isset($_FILES["editarFoto"]["tmp_name"]) && !empty($_FILES["editarFoto"]["tmp_name"]) ){
             list($ancho, $alto) = getimagesize($_FILES["editarFoto"]["tmp_name"]);
             $nuevoAncho = 500;
             $nuevoAlto = 500;
@@ -179,13 +184,9 @@ class ControladorUsuarios{
                           icon: "error",
                           title: "Oops... <br>La contraseña no puede ir vacia o con caracteres especiales",
                           showConfirmButton: true,
-                          confirButtonText: "Cerrar",
-                          closeOnConfirm: false
-                        }).then((result)=>{
-                          if(result.evalue){
-                            window.location = "inicio"
-                          }
+                          confirmButtonText: "Cerrar",
                         });
+                        window.location = "inicio"
                       </script>';
             }
           }else{
@@ -203,35 +204,49 @@ class ControladorUsuarios{
                       icon: 'success',
                       title: 'El usuario ha sido editado exitosamente',
                       showConfirmButton: true,
-                      confirButtonText: 'Cerrar',
-                      closeOnConfirm: false
-                    }).then((result)=>{
-                      if(result.evalue){
-                        window.location = 'inicio'
-                      }
+                      timer: 1500,
                     });
+                    window.location.href = 'inicio'
                   </script>";
           }
-          
-
-
-
-
-
         }else{
           echo "<script>
                   Swal.fire({
                     icon: 'error',
                     title: '¡El nombre no puede ir vacío o llevar caracteres especiales!',
                     showConfirmButton: true,
-                    confirButtonText: 'Cerrar',
-                    closeOnConfirm: false
-                  }).then((result)=>{
-                    if(result.evalue){
+                    timer: 1500
+                  });
+                  window.location.href = 'inicio'
+                </script>";
+        }
+      }
+    }
+    public static function ctrBorrarUsuario(){
+      if(isset($_GET['idUsuario'])){
+        $tabla = 'usuario';
+        $dato =  $_GET['idUsuario'];
+        if($_GET['fotoUsuario'] != ""){
+          unlink($_GET['fotoUsuario']);
+          rmdir("vistas/img/usuarios/".$_GET['nombreUsuario']);
+        }
+        $respuesta = ModeloUsuarios::mdlBorrarUsuario($tabla, $dato);
+
+        if($respuesta == "ok"){
+          echo "<script>
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'El usuario ha sido eliminado exitosamente',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if(result.value){
                       window.location = 'inicio'
                     }
                   });
                 </script>";
+        }else{
+          return 'error';
         }
       }
     }
