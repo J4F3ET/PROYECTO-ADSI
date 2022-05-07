@@ -226,9 +226,12 @@ class ControladorUsuarios{
       if(isset($_GET['idUsuario'])){
         $tabla = 'usuario';
         $dato =  $_GET['idUsuario'];
-        if($_GET['fotoUsuario'] != ""){
+        if($_GET["fotoUsuario"] != ""){
           unlink($_GET['fotoUsuario']);
-          rmdir("vistas/img/usuarios/".$_GET['nombreUsuario']);
+          
+          var_dump("vistas/img/usuarios/".$_GET["nombreUsuario"]);
+
+          rmdir("vistas/img/usuarios/".$_GET["nombreUsuario"]);
         }
         $respuesta = ModeloUsuarios::mdlBorrarUsuario($tabla, $dato);
 

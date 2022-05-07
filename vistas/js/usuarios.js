@@ -98,11 +98,9 @@ $('#nuevoUsuario').change(function(){
         contentType: false,
         processData: false,
         success: function(respuesta){
-            if (respuesta) {
+            if(respuesta != 'false'){
                 user=$('#nuevoUsuario').val();
-                $('#nuevoUsuario').before(function(){
-                    Swal.fire('El usuario  "'+ user + '" ya se encuentra registrado en la base de datos');
-                });
+                Swal.fire('El usuario  "'+ user + '" ya se encuentra registrado en la base de datos');
                 $('#nuevoUsuario').val("");
             }
         }
@@ -126,7 +124,7 @@ $('.btnEliminarUsuario').click(function(){
         confirmButtonText: 'Borrar Usuario'
     }).then((result) => {
         if (result.value) {
-            window.location = "index.php?ruta=inicio&idUsuario="+idUsuario+"&usuario="+nombreUsuario+"&fotoUsuario="+fotoUsuario;
+            window.location = "index.php?ruta=inicio&idUsuario="+idUsuario+"&nombreUsuario="+nombreUsuario+"&fotoUsuario="+fotoUsuario;
         }
     })
 })
