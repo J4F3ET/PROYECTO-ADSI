@@ -29,7 +29,7 @@ $(".nuevaFoto").change(function(){
         })
     }
 })
-$(".btnEditarUsuario").click(function(){
+$(document).on('click','.btnEditarUsuario',function(){
     var idUsuario = $(this).attr("idUsuario");
     
     var datos = new FormData();
@@ -56,7 +56,7 @@ $(".btnEditarUsuario").click(function(){
         }
     });
 })
-$(".btnActivar").click(function(){
+$(document).on('click',".btnActivar",function(){
     var idUsuario = $(this).attr("idUsuario");
     var estadoUsuario = $(this).attr("estadoUsuario");
     var datos = new FormData();
@@ -70,7 +70,17 @@ $(".btnActivar").click(function(){
         contentType: false,
         processData: false,
         success: function(respuesta){
-            
+            if(window.matchMedia("(max-width:767px)").matches){
+                Swal.fire({
+                    title:'El usuario ha sido actualizado',
+                    icon:'success',
+                    confirmButtonText:"¡Cerrar!"
+                }).then(function(result){
+                    if(result.value){
+                      window.location="inicio";  
+                    }
+                });
+            }
         }
     })
     if(estadoUsuario == 0){
@@ -109,7 +119,7 @@ $('#nuevoUsuario').change(function(){
 
 });
 // PARA ELIMINAR USUARIO ---> ALERTA <----
-$('.btnEliminarUsuario').click(function(){
+$(document).on('click','.btnEliminarUsuario',function(){
     idUsuario = $(this).attr('idUsuario');
     fotoUsuario = $(this).attr('fotoUsuario');
     nombreUsuario = $(this).attr('nombreUsuario');
