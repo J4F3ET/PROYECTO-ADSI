@@ -117,7 +117,7 @@ class ControladorUsuarios{
               icon: "error",
               title: "Oops... <br>El usuario no puede ir vacio o con caracteres especiales",
               showConfirmButton: true,
-              confirmButtonText: "Cerr
+              confirmButtonText: "Cerrar"
             });
             window.location = "inicio"
           </script>';

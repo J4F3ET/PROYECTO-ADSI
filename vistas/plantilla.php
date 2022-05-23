@@ -27,6 +27,8 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+  <!-- Personalizados -->
+  <link rel="stylesheet" href="vistas/dist/css/psonalizado.css">
   <!-- PLUGINS DE JAVASCRIT -->
   <!-- jQuery 3 -->
   <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
