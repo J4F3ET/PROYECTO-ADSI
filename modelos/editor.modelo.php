@@ -14,4 +14,14 @@ class ModeloEditor{
         }
         $stmt =null;
     }
+    static public function mdlMostrarNoticia($noticia){
+        $stmt = Conexion::conectar()->prepare("select comentario from noticias where noticia=:noticia order by id desc LIMIT 1");
+        $stmt->bindParam(":noticia",$noticia,PDO::PARAM_STR);
+        if ($stmt->execute()){
+            return $stmt -> fetch();
+        }else{
+            return "error";
+        }
+        $stmt =null;
+    } 
 }

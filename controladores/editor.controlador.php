@@ -44,14 +44,13 @@
                 $it=$desicion+$desicion2+$desicion3;
                 if($it==3){
                     echo "<script>
-                            Swal.fire({
                                 Swal.fire({
                                     title:'La noticia se a actualizado correctamente',
                                     icon:'success',
                                     confirmButtonText:'¡Cerrar!'
                                 }).then(function(result){
                                     if(result.value){
-                                        window.location='inicio';  
+                                        window.location='editor';  
                                     }
                                 });
                         </script>";
@@ -69,5 +68,9 @@
                 </script>";
                 }
             }
+        }
+        static public function ctrMostrarNoticia($noticia){
+            $respuesta = ModeloEditor::mdlMostrarNoticia($noticia);
+            return $respuesta['comentario'];
         }
     }

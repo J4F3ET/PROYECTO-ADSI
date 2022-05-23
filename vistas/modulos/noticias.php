@@ -6,7 +6,7 @@
     </section>
     <section class="content">
       <div class="box">
-        <div class="box-body row w-100 h-100">
+        <div id="contenedorApli" class="box-body row w-100 h-100">
           <div class="col-sm-3">
               <div class="divImgNoticia">
                 <img id="imgPublicaNoticia1"src="./vistas/img/noticia/noticia.1.jpeg"class="imgPublicaNoticia"alt="Imagen de noticias">
@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="col-sm-6 lead">
-            <div name="infoNoticias" class="text-break text-center text-black">
+            <div id="informacion_de_la_noticia_seleccionada" name="infoNoticias" class="text-break text-center text-black">
                   <h1 class="mt-2" >ServiDiesel FL</h1>
                   <p>Calle 17 C # 114 A 50 Interior 3, Fontibón Bogotá, Colombia</p>
                   <p>Contáctanos<br>
@@ -42,5 +42,6 @@
       <!-- /.box -->
 
     </section>
+    <script src="vistas/js/noticias.js"></script>
     <!-- /.content -->
   </div>
