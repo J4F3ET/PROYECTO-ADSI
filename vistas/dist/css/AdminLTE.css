@@ -24,16 +24,16 @@ body {
   overflow-y: auto;
 }
 #navegacion-barra{
-  background: #ec703b !important;
+  background: #f57c48 !important;
 }
 #navegacion-barra:hover{
-  background: #ec703b !important;
+  background: #f57c48 !important;
 }
 #logo-cabezote{
-  background: #ec703b !important;
+  background: #f57c48 !important;
 }
 #boton-barra-navegacion-cabezote:hover{
-  background: #d8602d !important;
+  background: #f57c48 !important;
 }
 /* Layout */
 .wrapper {
@@ -3406,7 +3406,7 @@ table.text-center th {
   color: #444;
 }
 .login-page,.register-page {
-  background: #ca551f;
+  background: #222d32;
   /* background: linear-gradient(rgba(228, 97, 10, 0.452),rgb(221, 105, 27)); */
 }
 .login-page #back{

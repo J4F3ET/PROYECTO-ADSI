@@ -6,3 +6,6 @@ Errores detectados sin corregir hasta el momento{
     REGISTRAR A UN USUARIO SIN FOTO DE PERFIL GENERA UN ERROR 
     RECARGAR LA PAGINA CON UN USUARIO ANTES REGISTRADO LO REGISTRA N CANTIDAD DE VECES QUE RECARGE LA PANTALLA--> solucionado a medias falta corregir el codigo bien para mostrar totalmente la animacion
 }
+falta{
+    ->en las pqrs falta gestionar un filtro para evitar que envien mas de 20 pqrs el mismo correo electronico
+}

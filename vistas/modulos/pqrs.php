@@ -16,28 +16,150 @@
 
       <!-- Default box -->
       <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
+        <div class="box-body">
+          <h2>Preguntas</h2>
+          <table class="table table-bordered table-striped dt-responsive tablas">
+            <thead>
+              <th style="width: 10px;">#</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Celular</th>
+              <th>Commentario</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+            </thead>
+            <tbody>
+              <?php
+                $tabla='pregunta';
+                $pregunta = ControladorPQRS::ctrMostrarTabla($tabla);
+                
+                foreach ($pregunta as $key => $value) {
+                  echo'<tr>
+                          <td>'.$value["id_pregunta"].'</td>
+                          <td>'.$value["nombreCliente"].'</td>
+                          <td>'.$value["emailCliente"].'</td>
+                          <td>'.$value["celularCliente"].'</td>
+                          <td>'.$value["comentarioCliente"].'</td>
+                          <td>'.$value["fechaIngreso"].'</td>';
+                          if($value["estado"]!=0)
+                          echo'<td><button class="btn btn-success">Respondido</button></td>';
+                          else{
+                            echo'<td><button class="btn btn-danger">Sin responder</button></td>';
+                          }
+                        '</tr>';
+                }
+              ?>
+            </tbody>
+          </table>
         </div>
         <div class="box-body">
-          Start creating your amazing application!
+          <h2>Quejas</h2>
+            <table class="table table-bordered table-striped dt-responsive tablas">
+            <thead>
+              <th style="width: 10px;">#</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Celular</th>
+              <th>Commentario</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+            </thead>
+            <tbody>
+              <?php
+                $tabla='queja';
+                $pregunta = ControladorPQRS::ctrMostrarTabla($tabla);
+                
+                foreach ($pregunta as $key => $value) {
+                  echo'<tr>
+                          <td>'.$value["id_pregunta"].'</td>
+                          <td>'.$value["nombreCliente"].'</td>
+                          <td>'.$value["emailCliente"].'</td>
+                          <td>'.$value["celularCliente"].'</td>
+                          <td>'.$value["comentarioCliente"].'</td>
+                          <td>'.$value["fechaIngreso"].'</td>';
+                          if($value["estado"]!=0)
+                          echo'<td><button class="btn btn-success">Respondido</button></td>';
+                          else{
+                            echo'<td><button class="btn btn-danger">Sin responder</button></td>';
+                          }
+                        '</tr>';
+                }
+              ?>
+            </tbody>
+          </table>
         </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
+        <div class="box-body">
+          <h2>Reclamos</h2>
+            <table class="table table-bordered table-striped dt-responsive tablas">
+            <thead>
+              <th style="width: 10px;">#</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Celular</th>
+              <th>Commentario</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+            </thead>
+            <tbody>
+              <?php
+                $tabla='reclamo';
+                $pregunta = ControladorPQRS::ctrMostrarTabla($tabla);
+                
+                foreach ($pregunta as $key => $value) {
+                  echo'<tr>
+                          <td>'.$value["id_pregunta"].'</td>
+                          <td>'.$value["nombreCliente"].'</td>
+                          <td>'.$value["emailCliente"].'</td>
+                          <td>'.$value["celularCliente"].'</td>
+                          <td>'.$value["comentarioCliente"].'</td>
+                          <td>'.$value["fechaIngreso"].'</td>';
+                          if($value["estado"]!=0)
+                          echo'<td><button class="btn btn-success">Respondido</button></td>';
+                          else{
+                            echo'<td><button class="btn btn-danger">Sin responder</button></td>';
+                          }
+                        '</tr>';
+                }
+              ?>
+            </tbody>
+          </table>
         </div>
-        <!-- /.box-footer-->
+        <div class="box-body">
+          <h2>Sugerencias</h2>
+            <table class="table table-bordered table-striped dt-responsive tablas">
+            <thead>
+              <th style="width: 10px;">#</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Celular</th>
+              <th>Commentario</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+            </thead>
+            <tbody>
+              <?php
+                $tabla='sugerencia';
+                $pregunta = ControladorPQRS::ctrMostrarTabla($tabla);
+                
+                foreach ($pregunta as $key => $value) {
+                  echo'<tr>
+                          <td>'.$value["id_pregunta"].'</td>
+                          <td>'.$value["nombreCliente"].'</td>
+                          <td>'.$value["emailCliente"].'</td>
+                          <td>'.$value["celularCliente"].'</td>
+                          <td>'.$value["comentarioCliente"].'</td>
+                          <td>'.$value["fechaIngreso"].'</td>';
+                          if($value["estado"]!=0)
+                          echo'<td><button class="btn btn-success">Respondido</button></td>';
+                          else{
+                            echo'<td><button class="btn btn-danger">Sin responder</button></td>';
+                          }
+                        '</tr>';
+                }
+              ?>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <!-- /.box -->
-
     </section>
-    <!-- /.content -->
   </div>
