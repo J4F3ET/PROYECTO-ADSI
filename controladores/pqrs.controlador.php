@@ -140,6 +140,12 @@ class ControladorPQRS{
         );
         $respuesta= ModeloPQRS::mdlEnviarRespuestaPQRS($tabla,$columna,$dato,$_POST["tablaPQRS"]);
         if($respuesta == "ok"){
+          $para      = $_POST["emailClientePQRS"];
+          $titulo    = $_POST["tablaPQRS"];
+          $mensaje   = $_POST["comentarioRespuestaPQRS"];
+          $mensaje = wordwrap($mensaje);
+          $cabeceras = 'De: jafetdc16@gmail.com' . "\r\n" .'Reponder a:'.$para. '' . "\r\n" .'X-Mailer: PHP/' . phpversion();
+          mail($para, $titulo, $mensaje, $cabeceras);
           echo "<script>
                   Swal.fire({
                     icon: 'success',
