@@ -97,3 +97,17 @@ div.divImgNoticia>img.imgPublicaNoticia{
     width: 100%;
     height: 25vh;
 }
+#comentarioRespuestaPQRS{
+    border: solid 1px rgb(184, 184, 184);
+    resize: none; 
+    margin-bottom: -5px;
+    width: 100%;
+    height: 15vh;
+}
+#comentarioClientePQRS{
+    border: solid 1px rgb(184, 184, 184);
+    resize: none; 
+    margin-bottom: -0px;
+    width: 100%;
+    height: 25vh;
+}

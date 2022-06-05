@@ -57,4 +57,115 @@ class ControladorPQRS{
       $respuesta = ModeloPQRS::mdlMostrarTabla($tabla);
       return $respuesta;
     }
+    static public function ctrMostrarDatosPQRS($tabla,$id,$estado){
+      $columna="";
+        switch ($tabla) {
+            case 'pregunta':
+                $columna='id_pregunta';
+                break;
+            case 'queja':
+                $columna="id_queja";
+                break;
+            case 'reclamo':
+                $columna="id_reclamo";
+                break;
+            case 'sugerencia':
+
+                $columna="id_sugerencia";
+                break;
+            default:
+                $columna="";
+                break;
+        }
+        $ida = (int)$id;
+        $respuesta = ModeloPQRS::mdlMostrarDatosPQRS($tabla,$ida,$estado,$columna);
+        return $respuesta;
+    }
+    static public function ctrEnviarRespuestaPQRS(){
+      if(isset($_POST["comentarioRespuestaPQRS"])){
+        // $_SESSION["nombre"] 
+        // $_SESSION["usuario"] 
+        // $_SESSION["foto"] 
+        // $_SESSION["perfil"]
+        date_default_timezone_set("America/Bogota");
+        $fecha=date('Y-m-d');
+        $tabla="";
+        switch ($_POST["tablaPQRS"]){
+          case 'pregunta':
+              $tabla='respuestapregunta';
+              break;
+          case 'queja':
+              $tabla="respuestaqueja";
+              break;
+          case 'reclamo':
+              $tabla="respuestareclamo";
+              break;
+          case 'sugerencia':
+
+              $tabla="respuestasugerencia";
+              break;
+          default:
+              $tabla="";
+              break;
+      }
+        $columna="";
+        switch ($_POST["tablaPQRS"]) {
+          case 'pregunta':
+              $columna='id_pregunta';
+              break;
+          case 'queja':
+              $columna="id_queja";
+              break;
+          case 'reclamo':
+              $columna="id_reclamo";
+              break;
+          case 'sugerencia':
+
+              $columna="id_sugerencia";
+              break;
+          default:
+              $columna="";
+              break;
+        }
+        $idPQRS=(int)$_POST["idPQRS"];
+        $idUser=(int)$_SESSION["id"];
+        $dato = array(
+          'id_PQRS'=> $idPQRS,
+          'id_usuario' => $idUser,
+          'comentarioRespuesta'=> $_POST["comentarioRespuestaPQRS"],
+          'fechaRespuesta'=>$fecha,
+          'nombreUsuario'=> $_SESSION["nombre"],
+          'nombreCliente'=> $_POST["nombreClientePQRS"],
+          'emailCliente'=>$_POST["emailClientePQRS"]
+        );
+        $respuesta= ModeloPQRS::mdlEnviarRespuestaPQRS($tabla,$columna,$dato,$_POST["tablaPQRS"]);
+        if($respuesta == "ok"){
+          echo "<script>
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Enviado Exitosamente',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if(result.value){
+                      window.location = 'pqrs'
+                    }
+                  });
+                </script>";
+        }else{
+            echo "<script>
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'No se pudo enviar la respuesta',
+                      showConfirmButton: true,
+                      confirmButtonText: 'Cerrar'
+                    }).then((result) => {
+                      if(result.value){
+                        window.location = 'pqrs'
+                      }
+                    });
+                  </script>";
+        }
+      }
+    }
 }
