@@ -19,12 +19,12 @@
                     <span>PQRS</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="gestor-pqrs">
                     <i class="fa fa-list"></i>
                     <span>Gestión PQRS</span>
                 </a>
-            </li>
+            </li> -->
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-address-book"></i>

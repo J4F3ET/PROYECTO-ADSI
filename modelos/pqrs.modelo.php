@@ -15,16 +15,6 @@ class ModeloPQRS{
         $respuesta=$stmt-> fetchAll();
         return $respuesta;
     }
-    static public function mdlLimitePQRS($tabla,$correo){
-        $stmt = Conexion::conectar()->prepare("SELECT COUNT(emailCliente) FROM $tabla WHERE emailCliente=:correo");
-        $stmt->bindParam(":correo",$correo);
-        if ($stmt->execute()){
-            return $stmt -> fetchAll();
-        }else{
-            return "error";
-        }
-        $stmt =null;
-    }
     static public function mdlEnviarPQRS($tabla,$dato){
         $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (nombreCliente, emailCliente, celularCliente, comentarioCliente, fechaIngreso, estado) VALUES (:nombreCliente, :emailCliente, :celularCliente, :comentarioCliente, :fechaIngreso,:estado)");
         $stmt->bindParam(":nombreCliente",$dato["nombreCliente"],PDO::PARAM_STR);
@@ -80,5 +70,14 @@ class ModeloPQRS{
             return"error";
         }
         
+    }
+    static public function mdlMostrarRespuesta($tablaAsunto,$tablaRespuesta,$columna,$idAsunto){
+        $stmt = Conexion::conectar()->prepare("SELECT comentarioCliente,fechaIngreso,$tablaRespuesta.* FROM $tablaAsunto JOIN $tablaRespuesta ON $tablaAsunto.$columna = $tablaRespuesta.$columna WHERE $tablaAsunto.$columna = $idAsunto");
+        if ($stmt->execute()){
+            return $stmt -> fetchAll();
+        }else{
+            return 'error';
+        }
+
     }
 }

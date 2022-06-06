@@ -42,7 +42,7 @@
                           <td>'.$value["comentarioCliente"].'</td>
                           <td>'.$value["fechaIngreso"].'</td>';
                           if($value["estado"]!=0)
-                          echo'<td><button class="btn btn-success">Respondido</button></td>';
+                          echo'<td><button class="btn btn-success btnRespondido" data-toggle="modal" data-target="#modalVerRespuestaPQRS" idAsuntoPQRS="'.$tabla.'" idPQRS="'.$value["id_pregunta"].'" estadoPQRS="1">Respondido</button></td>';
                           else{
                             echo'<td><button class="btn btn-danger btnResponder" data-toggle="modal" data-target="#modalResponderPQRS" idAsuntoPQRS="'.$tabla.'" idPQRS="'.$value["id_pregunta"].'" estadoPQRS="1">Sin responder</button></td>';
                           }
@@ -78,7 +78,7 @@
                           <td>'.$value["comentarioCliente"].'</td>
                           <td>'.$value["fechaIngreso"].'</td>';
                           if($value["estado"]!=0)
-                          echo'<td><button class="btn btn-success">Respondido</button></td>';
+                          echo'<td><button class="btn btn-success btnRespondido" data-toggle="modal" data-target="#modalVerRespuestaPQRS" idAsuntoPQRS="'.$tabla.'" idPQRS="'.$value["id_queja"].'" estadoPQRS="1">Respondido</button></td>';
                           else{
                             echo'<td><button class="btn btn-danger btnResponder" data-toggle="modal" data-target="#modalResponderPQRS" idAsuntoPQRS="'.$tabla.'" idPQRS="'.$value["id_queja"].'" estadoPQRS="1">Sin responder</button></td>';
                           }
@@ -114,7 +114,7 @@
                           <td>'.$value["comentarioCliente"].'</td>
                           <td>'.$value["fechaIngreso"].'</td>';
                           if($value["estado"]!=0)
-                          echo'<td><button class="btn btn-success">Respondido</button></td>';
+                          echo'<td><button class="btn btn-success btnRespondido" data-toggle="modal" data-target="#modalVerRespuestaPQRS" idAsuntoPQRS="'.$tabla.'" idPQRS="'.$value["id_reclamo"].'" estadoPQRS="1">Respondido</button></td>';
                           else{
                             echo'<td><button class="btn btn-danger btnResponder" data-toggle="modal" data-target="#modalResponderPQRS" idAsuntoPQRS="'.$tabla.'" idPQRS="'.$value["id_reclamo"].'" estadoPQRS="1">Sin responder</button></td>';
                           }
@@ -150,7 +150,7 @@
                           <td class="text-break">'.$value["comentarioCliente"].'</td>
                           <td>'.$value["fechaIngreso"].'</td>';
                           if($value["estado"]!=0)
-                          echo'<td><button class="btn btn-success">Respondido</button></td>';
+                          echo'<td><button class="btn btn-success btnRespondido" data-toggle="modal" data-target="#modalVerRespuestaPQRS" idAsuntoPQRS="'.$tabla.'" idPQRS="'.$value["id_sugerencia"].'" estadoPQRS="1">Respondido</button></td>';
                           else{
                             echo'<td><button class="btn btn-danger btnResponder" data-toggle="modal" data-target="#modalResponderPQRS" idAsuntoPQRS="'.$tabla.'" idPQRS="'.$value["id_sugerencia"].'" estadoPQRS="1">Sin responder</button></td>';
                           }
@@ -234,6 +234,80 @@
           $enviarRespuestaPQRS = new ControladorPQRS();
           $enviarRespuestaPQRS->ctrEnviarRespuestaPQRS();
         ?>
+      </form>
+    </div>
+  </div>
+</div>
+<div id="modalVerRespuestaPQRS" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form role="form" method="POST">
+        <!--cabezera del modal -->
+        <div class="modal-header" style="background: #f57c48; color: white;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Respuesta</h4>
+          <p id="parrafoRespuesta"></p>
+        </div>
+        <!-- contenido o body del modal -->
+        <div class="modal-body">
+          <div class="box-body">
+            <!-- formulario del modal -->
+            <!-- ENTRADA DE NOMBRE -->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
+                <span class="input-group-addon"><strong> ID de la PQRS</strong></span>
+                <input class="form-control input-lg" id="idPQRSmodalRespuesta" type="text" value="" readonly ></input>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-male"></i></span>
+                <span class="input-group-addon text-break"><strong>Nombre</strong></span>
+                <input class="form-control input-lg" id="nombreClienteModalRespuesta" type="text" value="" name="" readonly ></input>
+                
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <span class="input-group-addon text-break"><strong>Correo</strong></span>
+                <input class="form-control input-lg" id="emailModalRespuesta" type="email" value="" name="" readonly ></input>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <span class="input-group-addon"><strong>Fecha Ingreso</strong></span>
+                <input class="form-control input-lg" id="fechaIngresoPQRSmodalRespuesta" type="text" value="" name="" readonly ></input>
+                <span class="input-group-addon"><strong>Fecha Respuesta</strong></span>
+                <input class="form-control input-lg" id="fechaRespuestamodalRespuesta" type="text" value="" name="" readonly ></input>
+              </div>
+            </div>        
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon"><strong>Contesta</strong></span>
+                <input class="form-control input-lg" id="usuarioContestaModalRespuesta" type="text" value="" name="" readonly ></input>
+                <span class="input-group-addon"><strong>ID Usuario</strong></span>
+                <input class="form-control input-lg" id="idUsuarioRespondeModalRespuesta" type="text" value="" name="" readonly ></input>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-comment-o"></i></span>
+                <span class="input-group-addon"><strong>Respuesta </strong></span>
+                <textarea class="form-control input-lg text-break" id="comentarioPQRSmodalRespuesta"readonly ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- pie de pagina del modal -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default " data-dismiss="modal">Cerrar</button>
+        </div>
       </form>
     </div>
   </div>

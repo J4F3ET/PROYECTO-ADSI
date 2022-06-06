@@ -9,3 +9,19 @@ Errores detectados sin corregir hasta el momento{
 falta{
     ->en las pqrs falta gestionar un filtro para evitar que envien mas de 20 pqrs el mismo correo electronico
 }
+SELECT comentarioCliente,fechaIngreso,respuestapregunta.* FROM pregunta JOIN respuestapregunta ON pregunta.id_pregunta = respuestapregunta.id_pregunta WHERE pregunta.id_pregunta = 13;
+
+
+<br />
+<b>Warning</b>:  Undefined array key "tabla" in <b>C:\xampp\htdocs\ADSI\ajax\pqrs.ajax.php</b> on line <b>31</b><br />
+<br />
+<b>Warning</b>:  Undefined array key "idPQRS" in <b>C:\xampp\htdocs\ADSI\ajax\pqrs.ajax.php</b> on line <b>32</b><br />
+<br />
+<b>Fatal error</b>:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* FROM  JOIN  ON . = . WHERE . = 0' at line 1 in C:\xampp\htdocs\ADSI\modelos\pqrs.modelo.php:76
+Stack trace:
+#0 C:\xampp\htdocs\ADSI\modelos\pqrs.modelo.php(76): PDOStatement-&gt;execute()
+#1 C:\xampp\htdocs\ADSI\controladores\pqrs.controlador.php(182): ModeloPQRS::mdlMostrarRespuesta(NULL, '', '', 0)
+#2 C:\xampp\htdocs\ADSI\ajax\pqrs.ajax.php(18): ControladorPQRS::ctrMostrarRespuesta(NULL, 0)
+#3 C:\xampp\htdocs\ADSI\ajax\pqrs.ajax.php(33): AjaxPQRS-&gt;ajaxMostrarRespuesta()
+#4 {main}
+  thrown in <b>C:\xampp\htdocs\ADSI\modelos\pqrs.modelo.php</b> on line <b>76</b><br />

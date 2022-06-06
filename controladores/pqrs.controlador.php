@@ -1,14 +1,7 @@
 <?php
 class ControladorPQRS{
-    static public function ctrLimitePQRS($tabla,$correo){
-        if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ@]+$/',$correo)){
-            $respuesta = ModeloPQRS::mdlLimitePQRS($tabla,$correo);
-            return $respuesta[0];
-        }
-    }
     static public function ctrEnviarPQRS(){
         if (isset($_POST["nombreContactenos"])){
-            $limite=self::ctrLimitePQRS($_POST["asuntoContactenos"],$_POST["emailContactenos"]);
                 if(preg_match('/^[a-zA-Z ]+$/',$_POST["asuntoContactenos"])&&preg_match('/^[0-9]+$/',$_POST["celularContactenos"])){
                 date_default_timezone_set("America/Bogota");
                 $fecha=date('Y-m-d');
@@ -90,43 +83,29 @@ class ControladorPQRS{
         date_default_timezone_set("America/Bogota");
         $fecha=date('Y-m-d');
         $tabla="";
+        $columna="";
         switch ($_POST["tablaPQRS"]){
           case 'pregunta':
               $tabla='respuestapregunta';
+         $columna='id_pregunta';
               break;
           case 'queja':
               $tabla="respuestaqueja";
+              $columna="id_queja";
               break;
           case 'reclamo':
               $tabla="respuestareclamo";
+              $columna="id_reclamo";
               break;
           case 'sugerencia':
-
+              $columna="id_sugerencia";
               $tabla="respuestasugerencia";
               break;
           default:
               $tabla="";
-              break;
-      }
-        $columna="";
-        switch ($_POST["tablaPQRS"]) {
-          case 'pregunta':
-              $columna='id_pregunta';
-              break;
-          case 'queja':
-              $columna="id_queja";
-              break;
-          case 'reclamo':
-              $columna="id_reclamo";
-              break;
-          case 'sugerencia':
-
-              $columna="id_sugerencia";
-              break;
-          default:
               $columna="";
               break;
-        }
+      }
         $idPQRS=(int)$_POST["idPQRS"];
         $idUser=(int)$_SESSION["id"];
         $dato = array(
@@ -173,5 +152,34 @@ class ControladorPQRS{
                   </script>";
         }
       }
+    }
+    static public function ctrMostrarRespuesta($tablaAsunto,$idAsunto){
+        $tablaRespuesta="";
+        $columna="";
+        switch ($tablaAsunto){
+          case 'pregunta':
+              $tablaRespuesta='respuestapregunta';
+              $columna='id_pregunta';
+              break;
+          case 'queja':
+              $tablaRespuesta="respuestaqueja";
+              $columna="id_queja";
+              break;
+          case 'reclamo':
+              $tablaRespuesta="respuestareclamo";
+              $columna="id_reclamo";
+              break;
+          case 'sugerencia':
+              $tablaRespuesta="respuestasugerencia";
+              $columna="id_sugerencia";
+              break;
+          default:
+              $tablaRespuesta="";
+              $columna="";
+              break;
+        }
+        $idAsunto=(int)$idAsunto;
+        $respuesta= ModeloPQRS::mdlMostrarRespuesta($tablaAsunto,$tablaRespuesta,$columna,$idAsunto);
+        return $respuesta;
     }
 }
